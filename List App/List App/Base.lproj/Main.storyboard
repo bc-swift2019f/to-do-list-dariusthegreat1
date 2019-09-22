@@ -41,7 +41,11 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="To Do List" id="iJQ-iz-mae">
-                        <barButtonItem key="leftBarButtonItem" title="Edit" id="Abl-51-lYs"/>
+                        <barButtonItem key="leftBarButtonItem" title="Edit" id="Abl-51-lYs">
+                            <connections>
+                                <action selector="editBarButtonPressed:" destination="BYZ-38-t0r" id="f84-q3-ZQn"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="7ws-oC-CCm">
                             <connections>
                                 <segue destination="mJj-fa-Lhc" kind="presentation" identifier="Additem" id="vYp-QE-jE7"/>
@@ -49,6 +53,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="addBarButton" destination="7ws-oC-CCm" id="2gg-eG-i5l"/>
+                        <outlet property="editBarButton" destination="Abl-51-lYs" id="686-Xv-oSj"/>
                         <outlet property="tableView" destination="NxM-bO-isM" id="BH7-Xw-Mmp"/>
                     </connections>
                 </viewController>
@@ -76,7 +82,10 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
+                                <connections>
+                                    <action selector="toDoFieldChanged:" destination="h29-vu-vxl" eventType="editingChanged" id="G6C-CV-cyo"/>
+                                </connections>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -95,6 +104,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="saveBarButton" destination="ssm-eJ-MBe" id="15S-k2-FCI"/>
                         <outlet property="toDoField" destination="6XL-t7-hO1" id="1qI-QM-DbM"/>
                     </connections>
                 </viewController>
